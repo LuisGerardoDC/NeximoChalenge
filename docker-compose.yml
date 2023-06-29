@@ -1,6 +1,6 @@
 version: '3'
 services:
-  solutionApp:
+  solutionapp:
     build: 
       context: .
       dockerfile: dockerfile
