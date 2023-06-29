@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.exceptions import UnsupportedMediaType
 
-from ..utils import MXN, USD, MXN_IVA, USD_IVA, USD_COMMISSION, USD_TO_MXN
-from ..daos import ResponsePayment
+from ..utils.constants import MXN, USD, MXN_IVA, USD_IVA, USD_COMMISSION, USD_TO_MXN
+from ..daos.responsePayment import ResponsePayment
 
 class Calculator():
 
@@ -21,7 +21,7 @@ class Calculator():
             
         return totals
             
-    def calculateMXN(amount):
+    def calculateMXN(self,amount):
         itemized_amount = ResponsePayment(0.0,0.0,0.0)
 
         if amount > 500:
@@ -32,7 +32,7 @@ class Calculator():
 
         return itemized_amount
 
-    def calculateUSD(amount):
+    def calculateUSD(self,amount):
         itemized_amount = ResponsePayment(0.0,0.0,0.0)
 
         if (amount * USD_TO_MXN) > 500:

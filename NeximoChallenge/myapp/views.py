@@ -7,5 +7,4 @@ from .handler.paymentsHandlers import CalculatePayment
 
 UserRegistration = UserRegistrationView
 Login = LoginView
-
 Calculate = CalculatePayment
