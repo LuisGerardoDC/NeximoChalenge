@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from myapp.views import UserRegistration, paymentsEnpoint,Login
+from myapp.views import UserRegistration, Calculate,Login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include([
         path('register/',   UserRegistration.as_view(),    name='register'),
         path('login/',      Login.as_view(),       name='login'),
-        path('payments/',   paymentsEnpoint,    name='payments'),
+        path('payments/',   Calculate.as_view(),    name='payments'),
 
     ])),
 ]
