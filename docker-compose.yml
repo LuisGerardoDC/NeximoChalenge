@@ -1,1 +1,9 @@
 version: '3'
+services:
+  solutionApp:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - '8080:8080'
+      
