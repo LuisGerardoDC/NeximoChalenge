@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from ..usecases.calculate_iva import Calculator
-from ..dtos.requestPayments import RequestPayment
+from myapp.usecases.calculate_iva import Calculator
+from myapp.dtos.requestPayments import RequestPayment
 
 class CalculatePayment(APIView):
     permission_classes = [IsAuthenticated]

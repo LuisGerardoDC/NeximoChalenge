@@ -22,7 +22,7 @@ class TestCalculateIva(TestCase):
                 RequestPayment(amount= 20,currency="USD"),
                 RequestPayment(amount= 1160,currency="MXN"),
             ],
-            "expected": ResponsePayment(amount=2187.28,iva=297.02,commission=11.38),
+            "expected": ResponsePayment(amount=2187.24,iva=297.14,commission=35.62),
         }
 
     def test_calculate_Iva_One_Mxn_succes(self):
@@ -47,13 +47,13 @@ class TestCalculateIva(TestCase):
         self.assertEqual(obtined.iva,       self.MULTIPLE_MXN_PAYMENT['expected'].iva)
         self.assertEqual(obtined.commission,self.MULTIPLE_MXN_PAYMENT['expected'].commission)
 
-#    def test_calculate_Iva_Mix_Currency_succes(self):
-#        print("test_calculate_Iva_Mix_Currency_succes")
-#        # Arrange
-#        calculator = Calculator()
-#        # Act
-#        obtined = calculator.CalculateIva(self.MIX_CURRENCY_PAYMENT['payments'])
-#        #Assert
-#        self.assertEqual(obtined.amount,    self.MIX_CURRENCY_PAYMENT['expected'].amount)
-#        self.assertEqual(obtined.iva,       self.MIX_CURRENCY_PAYMENT['expected'].iva)
-#        self.assertEqual(obtined.commission,self.MIX_CURRENCY_PAYMENT['expected'].commission)
+    def test_calculate_Iva_Mix_Currency_succes(self):
+        print("test_calculate_Iva_Mix_Currency_succes")
+        # Arrange
+        calculator = Calculator()
+        # Act
+        obtined = calculator.CalculateIva(self.MIX_CURRENCY_PAYMENT['payments'])
+        #Assert
+        self.assertEqual(obtined.amount,    self.MIX_CURRENCY_PAYMENT['expected'].amount)
+        self.assertEqual(obtined.iva,       self.MIX_CURRENCY_PAYMENT['expected'].iva)
+        self.assertEqual(obtined.commission,self.MIX_CURRENCY_PAYMENT['expected'].commission)

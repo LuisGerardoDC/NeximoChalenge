@@ -17,7 +17,7 @@ class ResponsePayment():
         }
     
     def roundSelf(self):
-        self.amount = round(self.amount)
-        self.iva = round(self.iva)
-        self.commission = round(self.commission)
+        self.amount = round(self.amount,2)
+        self.iva = round(self.iva,2)
+        self.commission = round(self.commission,2)
         return self

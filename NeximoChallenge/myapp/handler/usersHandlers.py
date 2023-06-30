@@ -5,7 +5,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import AccessToken
 
-from ..utils.serializers import UserSerializer
+from myapp.utils.serializers import UserSerializer
 
 class UserRegistrationView(APIView):
     def post(self, request):
