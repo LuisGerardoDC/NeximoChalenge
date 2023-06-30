@@ -1,8 +1,8 @@
 from django.test import TestCase
-from .responsePayment import ResponsePayment
+from ..responsePayment import ResponsePayment
 
 class TestResponsePayment(TestCase):
-    def test_add_amounts(selft):
+    def test_add_amounts(self):
         # Arrange
         response_payment = ResponsePayment(
             total_amount=100,
@@ -24,5 +24,8 @@ class TestResponsePayment(TestCase):
         response_payment.add_ammounts(responsePaymentToAdd=response_payment_to_add)
 
         #Assert
-        selft.assertEqual(response_payment,expected_response_payment)
+        self.assertEqual(expected_response_payment.amount,response_payment.amount)
+        self.assertEqual(expected_response_payment.iva,response_payment.iva)
+        self.assertEqual(expected_response_payment.commission,response_payment.commission)
+
 
