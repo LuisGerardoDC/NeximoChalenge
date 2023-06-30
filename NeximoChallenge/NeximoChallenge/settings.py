@@ -134,3 +134,5 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
