@@ -6,19 +6,19 @@ class TestResponsePayment(TestCase):
         print(".test_add_amount_Success")
         # Arrange
         response_payment = ResponsePayment(
-            total_amount=100,
-            total_iva=16,
-            comission=0
+            amount=100,
+            iva=16,
+            commission=0
         )
         response_payment_to_add = ResponsePayment(
-            total_amount=1000,
-            total_iva=160,
-            comission=10
+            amount=1000,
+            iva=160,
+            commission=10
         )
         expected_response_payment = ResponsePayment(
-            total_amount=1100,
-            total_iva=176,
-            comission=10
+            amount=1100,
+            iva=176,
+            commission=10
         )
         #Act
 
@@ -33,9 +33,9 @@ class TestResponsePayment(TestCase):
         print("test_to_Dictionary_Success")
         # Arrange
         response_payment = ResponsePayment(
-            total_amount=99,
-            total_iva=16,
-            comission=1
+            amount=99,
+            iva=16,
+            commission=1
         )
         expected_dicionary = {
             'total':99,

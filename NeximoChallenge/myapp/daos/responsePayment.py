@@ -1,8 +1,8 @@
 class ResponsePayment():
-    def __init__(self,total_amount,total_iva,comission):
-        self.amount = total_amount
-        self.iva = total_iva
-        self.commission = comission
+    def __init__(self,amount,iva,commission):
+        self.amount = amount
+        self.iva = iva
+        self.commission = commission
 
     def add_ammounts(self,responsePaymentToAdd):
         self.amount += responsePaymentToAdd.amount

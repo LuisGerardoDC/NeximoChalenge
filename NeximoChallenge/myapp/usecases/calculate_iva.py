@@ -19,7 +19,7 @@ class Calculator():
             else:
                 raise UnsupportedMediaType('Currency not supported'+payment.currency)
             
-        return totals
+        return totals.roundSelf()
             
     def calculateMXN(self,amount):
         itemized_amount = ResponsePayment(0.0,0.0,0.0)
