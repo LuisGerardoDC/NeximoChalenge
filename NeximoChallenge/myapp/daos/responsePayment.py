@@ -15,3 +15,9 @@ class ResponsePayment():
             'taxes':self.iva,
             'commission':self.commission,
         }
+    
+    def roundSelf(self):
+        self.amount = round(self.amount)
+        self.iva = round(self.iva)
+        self.commission = round(self.commission)
+        return self
