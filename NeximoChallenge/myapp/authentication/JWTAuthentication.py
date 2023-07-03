@@ -1,20 +1,19 @@
-from rest_framework.authentication import BaseAuthentication
-from rest_framework.exceptions import AuthenticationFailed
-from django.conf import settings
 import jwt
+from datetime import datetime, timedelta
+from django.conf import settings
 
-class JWTAuthentication(BaseAuthentication):
-    def authenticate(self, request):
+def generate_jwt_token(user_id):
+    payload = {
+        'user_id': user_id,
+        'exp': datetime.utcnow() + timedelta(days=1),  # Token expira en 1 día
+    }
+    return jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
 
-        auth_header = request.headers.get('Authorization')
-        if not auth_header:
-            return None
-
-        try:
-            token = auth_header.split(' ')[1]
-            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-        except (jwt.DecodeError, jwt.ExpiredSignatureError):
-            raise AuthenticationFailed('Token inválido o expirado')
-
-        user = payload.get('user')
-        return (user, token)
+def decode_jwt_token(token):
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+        return payload.get('user_id')
+    except jwt.ExpiredSignatureError:
+        return None
+    except jwt.InvalidTokenError:
+        return None

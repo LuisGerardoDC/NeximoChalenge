@@ -126,7 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'myapp.authentication.CustomJWTAuthClass.JWTAuthentication',
     ],
 }
 
@@ -135,3 +135,5 @@ SIMPLE_JWT = {
 }
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+AUTH_USER_MODEL = 'myapp.User'
